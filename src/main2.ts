@@ -40,7 +40,7 @@ form.addEventListener("submit", (e) => {
     // 4) Visa resultatet
     const line = person.role === "student"
         ? `${person.name}, ${person.age} år – Är ${person.role})`
-        : `${person.name}, ${person.age} år – Är icke student`;
+        : `${person.name}, ${person.age} år – Är cke student`;
 
     output.innerHTML = `
     <p>${line}</p>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + TS</title>
+  <script type="module" crossorigin src="/assets/index-D2C6cAr0.js"></script>
+</head>
+
+<body>
+  <form id="person-form" action="">
+    <h1>Vänligen fyll i dina uppgifter!</h1>
+    <p class="questionP">Vad heter du?</p>
+    <input type="text" name="stringInput" id="stringInput" value="" required>
+    <p class="questionP">Hur gammal är du?</p>
+    <input type="text" name="numberInput" id="numberInput" value="" required>
+    <p class="questionP">Är du student?</p>
+
+    <section id="radioContainer">
+
+      <input type="radio" name="radio" id="yesRadio" value="student" required>
+      <label for="yesRadio">Ja</label>
+      <input type="radio" name="radio" id="noRadio" value="nonStudent" required>
+      <label for="noRadio">Nej</label>
+
+    </section>
+    <br>
+    <input type="submit" value="Skicka in" name="submit">
+
+  </form>
+
+  <article id="displayInputData">
+
+  </article>
+
+</body>
+
+</html>
