@@ -12,17 +12,17 @@ body {
 .submit {
   border-radius: 5px;
   border: solid 0.5px;
-  background-color: hsl(0, 0%, 90%);
+  background-color: hsl(0, 0%, 60%);
   height: 30px;
   width: 100px;
 }
 
 #submit:hover {
-  background-color: hsl(0, 0%, 80%);
+  background-color: hsl(0, 0%, 40%);
 }
 
 #submit:active {
-  background-color: hsl(0, 0%, 100%);
+  background-color: hsl(0, 0%, 80%);
 }
 
 /* form {
@@ -32,5 +32,9 @@ body {
 #submitContainer,
 #radioContainer {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+}
+
+#noContainer {
+  margin-left: 10px;
 }
