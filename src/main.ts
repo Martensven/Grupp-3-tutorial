@@ -1,24 +1,33 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+type Role = "student" | "nonStudent"
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+interface formData {
+    name: string,
+    age: number,
+    role: Role;
+}
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+const form = document.querySelector<HTMLFormElement>("#person-form")!;
+const displayInputs = document.querySelector<HTMLElement>("#displayInputData")!;
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const fd = new FormData(form);
+
+    const person: formData = {
+        name: String(fd.get("stringInput") ?? ""),
+        age: Number(fd.get("numberInput") ?? 0),
+        role: (fd.get("radio") as Role) ?? "nonStudent"
+    }
+
+    if (person.role !== "student") {
+        alert("Du måste vara student för att gå vidare!");
+        return;
+    }
+
+    displayInputs.innerHTML = `
+    <p>Hej ${person.name}, vad kul att du pluggar vid ${person.age} års ålder!<p>
+    `
+})
+
+
+
