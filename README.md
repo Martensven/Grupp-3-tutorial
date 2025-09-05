@@ -9,7 +9,7 @@ Interface är en "mall" som talar om vilka fält ett objekt har och vilken typ a
 Ex: en Person (objektet) har ett namn (som måste vara en sträng med text), en ålder (som måste vara ett nummer), och kan ha en roll (t.ex. student).
 
 I kodform:
-```
+```ts
 interface Person { // Vårat objekt
   namn: string; // Fältet "namn" ska innehålla en sträng med text
   ålder: number; // Fältet "ålder" ska innehålla ett nummer
@@ -22,7 +22,7 @@ Type alias tilldelar namn till en egenskapad typ och är bra att använda när m
 Ex: en persons (objektets) roll kan antingen vara student eller inte vara student.
 
 I kodform:
-```
+```ts
 // Vi skapar en egen typ och döper den till "Roll"
 type Roll = "student" | "ickeStudent"; // När vi använder typen Roll i vår kod så ska fältet innehålla ANTINGEN "student" ELLER "ickeStudent"
 ```
