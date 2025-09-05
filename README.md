@@ -9,7 +9,7 @@ Interface är en "mall" som talar om vilka fält ett objekt har och vilken typ a
 Ex: en Person (objektet) har ett namn (som måste vara en sträng med text), en ålder (som måste vara ett nummer), och kan ha en roll (t.ex. student).
 
 I kodform:
-```
+```ts
 interface Person { // Vårat objekt
   namn: string; // Fältet "namn" ska innehålla en sträng med text
   ålder: number; // Fältet "ålder" ska innehålla ett nummer
@@ -22,7 +22,7 @@ Type alias tilldelar namn till en egenskapad typ och är bra att använda när m
 Ex: en persons (objektets) roll kan antingen vara student eller inte vara student.
 
 I kodform:
-```
+```ts
 // Vi skapar en egen typ och döper den till "Roll"
 type Roll = "student" | "ickeStudent"; // När vi använder typen Roll i vår kod så ska fältet innehålla ANTINGEN "student" ELLER "ickeStudent"
 ```
@@ -46,6 +46,78 @@ Skapa 3-5 exempel på vanliga fel nybörjare gör med detta koncept
 Visa felmeddelanden från TypeScript
 Förklara hur man löser varje fel
 
+### Exempel 1: Glömt fylla i alla fält (som kräver ett värde) i ett objekt  
+
+```ts
+interface Person {
+  name: string;
+  age: number;
+}
+
+const p: Person = { name: "Anna" };
+```
+**Felmeddelande i VS Code:**  
+
+```python
+Property 'age' is missing in type '{ name: string; }' 
+but required in type 'Person'. (TS2741)
+```
+  
+**Vad betyder det?**  
+Vi har bestämt att en Person måste ha både name och age. Här saknas age.  
+**Lösning:** Lägg till det saknade fältet.
+```ts
+const p: Person = { name: "Anna", age: 36 };
+```
+
+### Exempel 2: Felaktigt värde i en type 
+
+```ts
+type Role = "student" | "nonStudent";
+
+const r: Role = "teacher";
+```
+**Felmeddelande i VS Code:**  
+
+```python
+Type '"teacher"' is not assignable to type '"student" | "nonStudent"'. (TS2322)
+```
+  
+**Vad betyder det?**  
+Vi har bestämt att Role bara kan vara "student" eller "nonStudent". "teacher" finns inte med på listan med tillåtna svarsalternativ. 
+**Lösning:** Använd ett värde som finns med i listan med tillåtna svarsalternativ för Role.
+```ts
+const r: Role = "student";
+```
+  
+### Exempel 3: Fel metod för fel typ
+
+```ts
+interface Person {
+  name: string;
+  age: number;
+  student: boolean;
+}
+
+const p: Person = { name: "Anna", age: 15, student: true };
+console.log(p.student.toUpperCase()); // Vi försöker skriva ut värdet för student i VERSALER
+```
+**Felmeddelande i VS Code:**  
+
+```python
+Property 'toUpperCase' does not exist on type 'boolean'. (TS2339)
+```
+  
+**Vad betyder det?**  
+toUpperCase fungerar bara på text (t.ex. "hej" toUpperCase() blir "HEJ"). 
+Men här är student en boolean, som bara kan vara true eller false, inte en text.
+**Lösning:** Använd en if-sats för att kolla om personen är student, och om personen är student, skriv ut "Den här personen är student".
+```ts
+if (p.student) {
+  console.log("Den här personen är student");
+}
+```
+  
 
 ## C. Ert kompletta program
 Presentera programmet med tydliga kommentarer
