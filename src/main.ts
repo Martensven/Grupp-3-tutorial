@@ -10,11 +10,12 @@ interface formData {
 const form = document.querySelector<HTMLFormElement>("#person-form")!;
 const displayInputs = document.querySelector<HTMLElement>("#displayInputData")!;
 const ageInput = document.querySelector<HTMLInputElement>("#numberInput")!;
-const ageAsNumber = ageInput.valueAsNumber;
+// const ageAsNumber = ageInput.valueAsNumber;
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const fd = new FormData(form);
+  const ageAsNumber = ageInput.valueAsNumber;
 
 
   const person: formData = {
