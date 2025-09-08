@@ -160,9 +160,35 @@ form.submit(); // TypeScript vet att submit() fungerar på ett <form>-element oc
 
 ## C. Ert kompletta program
 
-Presentera programmet med tydliga kommentarer
-Förklara hur konceptet används i praktiken
 Inkludera instruktioner för hur man kör programmet
+
+Vi har skapat ett simpelt program för ifyllning av ett formulär för att registrera sig som student. Användaren fyller i namn, ålder och verifierar att de är studerande. Namnet måste vara ifyllt, åldern måste vara ett heltal större än 5 och om användaren anger att de inte är student så får de ej gå vidare. När användaren sen klickar på "Skicka in" får de ett feedback-meddelande med ifyllda uppgifter för att se att allt gått rätt till.  
+
+Vi använder oss av ett Interface för att se till att formuläret innehåller rätt data, och att den datan är av rätt typ:
+
+```ts
+interface formData {
+  name: string;
+  age: number;
+  role: Role;
+}
+```
+
+Vi använder oss av en custom type för Role, som ser till att användaren antingen måste vara student eller ickestudent, inget annat svar godkänns:
+
+```ts
+type Role = "student" | "nonStudent";
+```
+
+## FÖR ATT KÖRA PROGRAMMET:  
+1. Öppna VS Code eller annan kodeditor
+2. I terminalen, kör:
+```
+git clone https://github.com/Martensven/Grupp-3-tutorial.git
+cd Grupp-3-tutorial
+npm install
+npm run dev
+```
 
 ## D. Övningsuppgift
 
