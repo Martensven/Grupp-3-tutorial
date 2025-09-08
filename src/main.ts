@@ -9,14 +9,17 @@ interface formData {
 
 const form = document.querySelector<HTMLFormElement>("#person-form")!;
 const displayInputs = document.querySelector<HTMLElement>("#displayInputData")!;
+const ageInput = document.querySelector<HTMLInputElement>("#numberInput")!;
+const ageAsNumber = ageInput.valueAsNumber;
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const fd = new FormData(form);
 
+
   const person: formData = {
     name: String(fd.get("stringInput") ?? ""),
-    age: Number(fd.get("numberInput") ?? 0),
+    age: Number(ageAsNumber) ?? 0,
     role: (fd.get("radio") as Role) ?? "nonStudent",
 
     // "email" ska ha samma struktur som "namn"
@@ -24,6 +27,11 @@ form.addEventListener("submit", (e) => {
 
   if (person.role !== "student") {
     alert("Du måste vara student för att gå vidare!");
+    return
+  }
+
+  if (isNaN(person.age) || person.age <= 5) {
+    alert("Du måste skriva in en giltig ålder (större än 5)!");
     return;
   }
 

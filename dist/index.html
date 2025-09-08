@@ -1,61 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
-    <script type="module" crossorigin src="/assets/index-QKzRXSIS.js"></script>
-  </head>
 
-  <body>
-    <form id="person-form" action="">
-      <h1>Vänligen fyll i dina uppgifter!</h1>
-      <p class="questionP">Vad heter du?</p>
-      <input
-        type="text"
-        name="stringInput"
-        id="stringInput"
-        value=""
-        required
-      />
-      <p class="questionP">Hur gammal är du?</p>
-      <input
-        type="text"
-        name="stringInput"
-        id="stringInput"
-        value=""
-        required
-      />
-      <!-- Ta bort kommentaren för de två raderna här under -->
-      <!-- <p class="questionP">Vad är din Email?</p>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + TS</title>
+  <script type="module" crossorigin src="/assets/index-7MXIRH-G.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CIwwxr1k.css">
+</head>
+
+<body>
+  <form id="person-form" action="">
+    <h1>Vänligen fyll i dina uppgifter!</h1>
+    <p class="questionP">Vad heter du?</p>
+    <input type="text" name="stringInput" id="stringInput" value="" required />
+    <p class="questionP">Hur gammal är du?</p>
+    <input type="number" name="numberInput" id="numberInput" value="" required />
+    <!-- Ta bort kommentaren för de två raderna här under -->
+    <!-- <p class="questionP">Vad är din Email?</p>
       <input type="text" name="emailInput" id="emailInput" value="" required /> -->
-      <p class="questionP">Är du student?</p>
+    <p class="questionP">Är du student?</p>
 
-      <section id="radioContainer">
-        <input
-          type="radio"
-          name="radio"
-          id="yesRadio"
-          value="student"
-          required
-        />
+    <section id="radioContainer">
+      <span id="yesContainer">
+        <input type="radio" name="radio" id="yesRadio" value="student" required />
         <label for="yesRadio">Ja</label>
-        <input
-          type="radio"
-          name="radio"
-          id="noRadio"
-          value="nonStudent"
-          required
-        />
+      </span>
+
+      <span id="noContainer">
+        <input type="radio" name="radio" id="noRadio" value="nonStudent" required />
         <label for="noRadio">Nej</label>
-      </section>
-      <br />
-      <input type="submit" value="Skicka in" name="submit" />
-    </form>
+      </span>
 
-    <article id="displayInputData"></article>
-
-  </body>
+    </section>
+    <br />
+    <input type="submit" value="Skicka in" name="submit" />
+  </form>
+
+  <article id="displayInputData"></article>
+
+  <!-- <script type="module" src="./dist/assets/index-DT2zNpYO.js"></script> -->
+</body>
+
 </html>
-
